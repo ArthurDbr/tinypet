@@ -8,14 +8,11 @@
 
 ## Sommaire
 
-- [Interface]
-- [Fonctionnalités]
-- [API Endpoints]
-- [Contributors]
-- [Build Process]
-- [Backers])
-- [Sponsors]
-- [Acknowledgments]
+- [Interface](Interface)
+- [Fonctionnalités](Fonctionnalités)
+- [API Endpoints](API Endpoints)
+- [Contributors](Contributors)
+- [Build Process](Build Process)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -25,8 +22,15 @@ Single Page App développée en MithrilJS
 Conception de l'UI sous Adobe XD
 
 <p align="center">
-  <img src = "https://imgur.com/a/4Z4Ip7p" width=350>
+  <img src = "https://imgur.com/a/4Z4Ip7p.jpg" width=350>
 </p>
+
+Cette partie du projet fût réaliser avec le langage mithril. 
+Le projet est découpé en components réunis dans une Single Page App.
+index.html à la racine du projet d'importe les feuilles de stylé CSS et les scripts Firebase ainsi que la logique de l'application dans le fichier App.js
+Dans le dossier /src nous pouvons trouver le css de l'application qui utilise le framework bootstrap. 
+Le dossier /models regroupe les classes faisant des requetes vers notre back-end ou des appels à firebase. 
+Le dossier views regroupe les différents components de notre application.
 
 ## Fonctionnalités
 
@@ -38,8 +42,10 @@ Conception de l'UI sous Adobe XD
 * Visualisation du nombre de pétitions en cours
 * Visualisation du nombre de votes totaux 
 
-<p align="center">Aggrégats réalisés à l'écriture (création de pétition et vote) pour limiter les requêtes Datastore 
-  <img src = "https://imgur.com/a/yMgF9iW" width=700>
+**Les requêtes vers le Datastore s'appuient à la fois sur les dépendances bas niveau fournies par Google ainsi que sur la librairie Objectify**
+
+<p >Aggrégats réalisés à l'écriture (création de pétition et vote) pour limiter les requêtes Datastore 
+  <img src="https://imgur.com/a/yMgF9iW.jpg" width=700>
 </p>
 
 ## API Endpoints
