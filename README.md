@@ -1,165 +1,75 @@
-# App Engine Standard & Google Cloud Endpoints Frameworks & Java
+<h1 align="center"> TinyPet </h1> <br>
 
-<a href="https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/GoogleCloudPlatform/java-docs-samples&page=editor&open_in_editor=appengine-java8/endpoints-v2-backend/README.md">
-<img alt="Open in Cloud Shell" src ="http://gstatic.com/cloudssh/images/open-btn.png"></a>
+<p align="center">
+  Site web de pétitions, réalisé dans le cadre du module de développement d'applications sur le CLOUD.
+</p>
 
+**[tinypet2.appspot.com](tinypet2.appspot.com)**
 
-This sample demonstrates how to use Google Cloud Endpoints Frameworks using
-Java on App Engine Standard.
+## Sommaire
 
-## Build with Maven
+- [Interface]
+- [Fonctionnalités]
+- [API Endpoints]
+- [Contributors]
+- [Build Process]
+- [Backers])
+- [Sponsors]
+- [Acknowledgments]
 
-### Adding the project ID to the sample API code
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-You must add the project ID obtained when you created your project to the
-sample's `pom.xml` before you can deploy the code.
+## Interface
 
-To add the project ID:
+Single Page App développée en MithrilJS
+Conception de l'UI sous Adobe XD
 
-0. Edit the file `pom.xml`.
+<p align="center">
+  <img src = "https://imgur.com/a/4Z4Ip7p" width=350>
+</p>
 
-0. For `<endpoints.project.id>`, replace the value `YOUR_PROJECT_ID` with
-your project ID.
+## Fonctionnalités
 
-0. Edit the file `src/main/java/com/example/echo/Echo.java`.
+* Inscription / Connexion par adresse email avec Firebase
+* Créeation d'une pétition
+* Visualisation du top 100 des pétitions
+* Visualisation des pétitions de l'utilisateur connecté
+* Vote pour une pétition
+* Visualisation du nombre de pétitions en cours
+* Visualisation du nombre de votes totaux 
 
-0. Replace the value `YOUR-PROJECT-ID` with your project ID.
+<p align="center">Aggrégats réalisés à l'écriture (création de pétition et vote) pour limiter les requêtes Datastore 
+  <img src = "https://imgur.com/a/yMgF9iW" width=700>
+</p>
 
-0. Save your changes.
+## API Endpoints
 
-### Building the sample project
+**Get list of top 100 petitions**
+GET https://tinypet2.appspot.com/_ah/api/tinyapi/v1/petitions
 
-To build the project:
+**Get petition by ID**
+GET https://tinypet2.appspot.com/_ah/api/tinyapi/v1/petitions/PETID
 
-    mvn clean package
+**Get petitions created by User**
+GET https://tinypet2.appspot.com/_ah/api/tinyapi/v1/petitions/user/USERID
 
-### Generating the openapi.json file
+**Get petitions voted by User**
+GET https://tinypet2.appspot.com/_ah/api/tinyapi/v1/petitions/vote/user/USERID
 
-To generate the required configuration file `openapi.json`:
+**Post a vote to a petition**
+GET https://tinypet2.appspot.com/_ah/api/tinyapi/v1/petitions/vote/PETID/USERID
 
-    mvn endpoints-framework:openApiDocs
+**Post a petition**
+POST https://tinypet2.appspot.com/_ah/api/tinyapi/v1/petitions?title=TITLE&description=DESCRIPTION&creator=CREATOR PETIT&idCreator=USERID
 
-### Deploying the sample API to App Engine
+**Get aggregates (number of votes and petitions on the app)**
+GET https://tinypet2.appspot.com/_ah/api/tinyapi/v1/aggregates
 
-To deploy the sample API:
+## Contributors
 
-0. Invoke the `gcloud` command to deploy the API configuration file:
+Arthur DEBAR & Alexis PETIT
 
-         gcloud endpoints services deploy target/openapi-docs/openapi.json
+## Build Process
 
-0. Deploy the API implementation code by invoking:
+Sur Eclipse : 'Deploy to Appengine'
 
-         mvn appengine:deploy
-
-    The first time you upload a sample app, you may be prompted to authorize the
-    deployment. Follow the prompts: when you are presented with a browser window
-    containing a code, copy it to the terminal window.
-
-0. Wait for the upload to finish.
-
-### Sending a request to the sample API
-
-After you deploy the API and its configuration file, you can send requests
-to the API.
-
-To send a request to the API, from a command line, invoke the following `cURL`
-command:
-
-     curl \
-         -H "Content-Type: application/json" \
-         -X POST \
-         -d '{"message":"echo"}' \
-         https://$PROJECT_ID.appspot.com/_ah/api/echo/v1/echo
-
-You will get a 200 response with the following data:
-
-    {
-     "message": "echo"
-    }
-
-## Build with gradle
-
-### Adding the project ID to the sample API code
-
-0. Edit the file `build.gradle`.
-
-0. For `def projectId = 'YOUR_PROJECT_ID'`, replace the value `YOUR_PROJECT_ID`
-with your project ID.
-
-0. Edit the file `src/main/java/com/example/echo/Echo.java
-
-0. Replace the value `YOUR-PROJECT-ID` with your project ID.
-
-0. Save your changes.
-
-### Building the sample project
-
-To build the project on unix-based systems:
-
-    ./gradlew build
-
-Windows users: Use `gradlew.bat` instead of `./gradlew`
-
-<details>
- <summary>more details</summary>
- The project contains the standard java and war plugins and in addition to that it contains the following plugins:
- https://github.com/GoogleCloudPlatform/endpoints-framework-gradle-plugin for the endpoint related tasks and
- https://github.com/GoogleCloudPlatform/app-gradle-plugin for the appengine standard related tasks.
-
- Check the links for details about the available Plugin Goals and Parameters.
-</details>
-
-### Generating the openapi.json file
-
-To generate the required configuration file `openapi.json`:
-
-    ./gradlew endpointsOpenApiDocs
-
-This results in a file in build/endpointsOpenApiDocs/openapi.json
-
-### Deploying the sample API to App Engine
-
-To deploy the sample API:
-
-0. Invoke the `gcloud` command to deploy the API configuration file:
-
-         gcloud endpoints services deploy build/endpointsOpenApiDocs/openapi.json
-
-0. Deploy the API implementation code by invoking:
-
-         ./gradlew appengineDeploy
-
-    The first time you upload a sample app, you may be prompted to authorize the
-    deployment. Follow the prompts: when you are presented with a browser window
-    containing a code, copy it to the terminal window.
-
-    <details>
-    <summary>ERROR: (gcloud.app.deploy) The current Google Cloud project [...] does not contain an App Engine application.</summary>
-    If you create a fresh cloud project that doesn't contain a appengine application you may receive this Error:
-
-    ERROR: (gcloud.app.deploy) The current Google Cloud project [...] does not contain an App Engine application. Use `gcloud app create` to initialize an App Engine application within the project.
-
-    In that case just execute `gcloud app create`, you will be asked to select a region and the app will be created. Then run gradle appengineDeploy again.
-    </details>
-
-0. Wait for the upload to finish.
-
-### Sending a request to the sample API
-
-After you deploy the API and its configuration file, you can send requests
-to the API.
-
-To send a request to the API, from a command line, invoke the following `cURL`
-command:
-
-     curl \
-         -H "Content-Type: application/json" \
-         -X POST \
-         -d '{"message":"echo"}' \
-         https://$PROJECT_ID.appspot.com/_ah/api/echo/v1/echo
-
-You will get a 200 response with the following data:
-
-    {
-     "message": "echo"
-    }
