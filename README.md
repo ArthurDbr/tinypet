@@ -21,7 +21,7 @@
 Single Page App développée en MithrilJS
 Conception de l'UI sous Adobe XD
 
-![Imgur Image](https://i.imgur.com/52moJNL.png)
+![Imgur Image](https://i.imgur.com/6ByzmFO.png)
 
 Cette partie du projet fût réaliser avec le langage mithril. 
 Le projet est découpé en components réunis dans une Single Page App.
