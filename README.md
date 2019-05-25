@@ -21,7 +21,7 @@
 Single Page App développée en MithrilJS
 Conception de l'UI sous Adobe XD
 
-![Imgur Image](https://imgur.com/a/4Z4Ip7p.jpg)
+![Imgur Image](https://i.imgur.com/52moJNL.png)
 
 Cette partie du projet fût réaliser avec le langage mithril. 
 Le projet est découpé en components réunis dans une Single Page App.
@@ -44,7 +44,7 @@ Le dossier views regroupe les différents components de notre application.
 
 <p >Aggrégats réalisés à l'écriture (création de pétition et vote) pour limiter les requêtes Datastore 
 </p>
-![Imgur Image](https://imgur.com/a/yMgF9iW.jpg)
+![Imgur Image](https://i.imgur.com/3FNph5R.png)
 
 ## API Endpoints
 
