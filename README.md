@@ -44,6 +44,7 @@ Le dossier views regroupe les différents components de notre application.
 
 <p >Aggrégats réalisés à l'écriture (création de pétition et vote) pour limiter les requêtes Datastore 
 </p>
+
 ![Imgur Image](https://i.imgur.com/3FNph5R.png)
 
 ## API Endpoints
