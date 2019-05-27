@@ -25,7 +25,7 @@ Conception de l'UI sous Adobe XD
 
 Cette partie du projet fût réaliser avec le langage mithril. 
 Le projet est découpé en components réunis dans une Single Page App.
-index.html à la racine du projet d'importe les feuilles de stylé CSS et les scripts Firebase ainsi que la logique de l'application dans le fichier App.js
+On retrouve l'index.html à la racine du projet qui permet d'importer les feuilles de style CSS et les scripts Firebase ainsi que la logique de l'application dans le fichier App.js
 Dans le dossier /src nous pouvons trouver le css de l'application qui utilise le framework bootstrap. 
 Le dossier /models regroupe les classes faisant des requetes vers notre back-end ou des appels à firebase. 
 Le dossier views regroupe les différents components de notre application.
